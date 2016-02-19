@@ -5,7 +5,7 @@
 app.controller("Tweet", ["$scope", "chatMessages",
     // Enviamos nuestr chatMessages al controller
     function($scope, chatMessages) {
-        $scope.user = "Sergi Barjola ";
+        $scope.user = "Mireia Fernández";
 
         // anyadimos el array de chatMessages al scope que usaremos en nuestro ng-repeat
         $scope.messages = chatMessages;
