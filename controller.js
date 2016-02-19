@@ -3,14 +3,14 @@
  */
 
 app.controller("Tweet", ["$scope", "chatMessages",
-    // we pass our new chatMessages factory into the controller
+    // Enviamos nuestr chatMessages al controller
     function($scope, chatMessages) {
         $scope.user = "Sergi Barjola ";
 
-        // we add chatMessages array to the scope to be used in our ng-repeat
+        // anyadimos el array de chatMessages al scope que usaremos en nuestro ng-repeat
         $scope.messages = chatMessages;
 
-        // a method to create new messages; called by ng-submit
+        // un metodo para crear nuevos mensajes; llamado desde ng-submit
         $scope.addMessage = function() {
             // calling $add on a synchronized array is like Array.push(),
             // except that it saves the changes to our database!
