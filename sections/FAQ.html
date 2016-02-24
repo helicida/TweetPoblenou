@@ -5,7 +5,6 @@
         <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
         <link rel="stylesheet" type="text/css" href="footerStyle.css">
 
-
         <!-- Importamos Bootstrap  -->
 
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -29,13 +28,13 @@
                     <!-- Desplegable navbar -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="./index.html">Chat <span class="sr-only">(current)</span></a></li>
+                            <li class="active"><a href="../index.html">Chat <span class="sr-only">(current)</span></a></li>
                             <li><a href="#">Crear Usuari</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opcions <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="./sections/FAQ.html">FAQ</a></li>
-                                    <li><a href="./sections/about.html">About</a></li>
+                                    <li><a href="FAQ.html">FAQ</a></li>
+                                    <li><a href="about.html">About</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -68,33 +67,16 @@
     <!-- Body -->
     <body ng-controller="Tweet">
     <div>
-        <!-- Container de titulo -->
-        <div class="container">
-            <div class="jumbotron">
-                <h1>Tweet Poblenou </h1>
-                <p>Ejemplo de un sitio web de chat programado en HTML, JavaScript & Bootstrap</p>
-            </div>
-
-            <!-- En esta parte mostramos la lista del chat -->
-            <ul class="chatbox">
-                <li ng-repeat="message in messages"> <b>{{ message.user }}:</b> {{ message.text }}</li>
-            </ul>
-            <hr>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-	<div class="form-footer">
-		<center>
-			<!-- Con este boton enviamos el mensaje -->
-			<form ng-submit="addMessage()">
-				<input ng-model="message" type = "text" size="35">
-				<input value="Envia missatge" type = "submit">
-			</form>
+      <center>
+		  <div class="starter-template">
+			<h1>Frequently Answered Questions</h1>
+			<p class="lead">Usar el servicio.<br></p>
+			<p>Usar este servicio es muy sencillo. Crea un usuario, conectate a tu cuenta y publica mensajes.</p>
+			<br><br>
+			<img src="http://virtual.ecaib.org/pluginfile.php?file=/22910/mod_label/intro/525501_361671850557498_601868741_n.jpg">
+		  </div>
 		</center>
-	</div>	
-    </footer>
+    </div>
 
     <!-- Modules -->
     <script src="app.js"></script>

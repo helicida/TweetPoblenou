@@ -3,11 +3,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
         <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
         <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+ 	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+   	<script src="../GitHubStats/colors.js"></script>
+    	<script src="../GitHubStats/script.js"></script>
+	<link rel="stylesheet" type="text/css" href="../GitHubStats/style.css">
         <link rel="stylesheet" type="text/css" href="footerStyle.css">
 
-
         <!-- Importamos Bootstrap  -->
-
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -29,13 +31,13 @@
                     <!-- Desplegable navbar -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="./index.html">Chat <span class="sr-only">(current)</span></a></li>
+                            <li class="active"><a href="../index.html">Chat <span class="sr-only">(current)</span></a></li>
                             <li><a href="#">Crear Usuari</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opcions <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="./sections/FAQ.html">FAQ</a></li>
-                                    <li><a href="./sections/about.html">About</a></li>
+                                    <li><a href="FAQ.html">FAQ</a></li>
+                                    <li><a href="about.html">About</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -68,33 +70,41 @@
     <!-- Body -->
     <body ng-controller="Tweet">
     <div>
-        <!-- Container de titulo -->
-        <div class="container">
-            <div class="jumbotron">
-                <h1>Tweet Poblenou </h1>
-                <p>Ejemplo de un sitio web de chat programado en HTML, JavaScript & Bootstrap</p>
-            </div>
+      <center>
+		  <div class="starter-template">
+			<h1>Project aviable on GitHub</h1>
+			<p class="lead">Repository link.<br></p>
 
-            <!-- En esta parte mostramos la lista del chat -->
-            <ul class="chatbox">
-                <li ng-repeat="message in messages"> <b>{{ message.user }}:</b> {{ message.text }}</li>
-            </ul>
-            <hr>
-        </div>
-    </div>
+			<!-- Este codigo pertenece al repositorio https://github.com/pketh/github-report-card-->
+				<div class="gh gh-report-card">
+				  <div class="gh gh-header">
+				    <div class="gh gh-octocat">
+				      <img src="../GitHubStats/octocat.svg">
+				    </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-	<div class="form-footer">
-		<center>
-			<!-- Con este boton enviamos el mensaje -->
-			<form ng-submit="addMessage()">
-				<input ng-model="message" type = "text" size="35">
-				<input value="Envia missatge" type = "submit">
-			</form>
+				    <span class="gh-title">Github Report</span>
+
+				    <div class="gh gh-avatar"></div>
+				    <div class="gh gh-username"></div>
+				    <div class="gh gh-recently-active gh-hidden">
+				      <span class="gh gh-greenbox"></span>
+				      <span class="gh gh-recent-txt">Recently Active</span>
+				    </div>
+				  </div>
+
+				  <div class="gh gh-contents">
+				    <p class="gh gh-repos"></p>
+				    <p class="gh gh-gists"></p>
+				  </div>
+
+				  <div class="gh gh-languages"></div>
+				</div>				
+			<!-- Este codigo pertenece al repositorio https://github.com/pketh/github-report-card-->
+
+			<br><br> <img src="http://albertoromeu.com/wp-content/uploads/2014/03/github-logo.jpg">
+		  </div>
 		</center>
-	</div>	
-    </footer>
+    </div>
 
     <!-- Modules -->
     <script src="app.js"></script>

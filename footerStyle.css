@@ -13,3 +13,9 @@ body {
     height: 60px;
     background-color: #f5f5f5;
 }
+.form-footer {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
