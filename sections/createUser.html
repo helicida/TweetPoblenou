@@ -6,13 +6,12 @@
     <link rel="stylesheet" type="text/css" href="footerStyle.css">
 
     <!-- Title-->
-    <title>About | Helicida</title>
+    <title>Crear Usuari | Helicida</title>
 
     <!-- Importamos Bootstrap  -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
 
     <!-- Barra de navegación -->
             <nav class="navbar navbar-default">
@@ -33,7 +32,7 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="../index.html">Chat <span class="sr-only">(current)</span></a></li>
-                            <li><a href="./createUser.html">Crear Usuari</a></li>
+                            <li><a href="#">Crear Usuari</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opcions <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
@@ -70,39 +69,15 @@
 
     <!-- Body -->
     <body ng-controller="Tweet">
-    <div>
-		  <div class="starter-template" style="text-align:center">
-			<h1>Project aviable on GitHub</h1>
-			<p class="lead">Repository link.<br></p>
-
-			<!-- Este codigo pertenece al repositorio https://github.com/pketh/github-report-card-->
-				<div class="gh gh-report-card">
-				  <div class="gh gh-header">
-				    <div class="gh gh-octocat">
-				      <img src="../GitHubStats/octocat.svg">
-				    </div>
-
-				    <span class="gh-title">Github Report</span>
-
-				    <div class="gh gh-avatar"></div>
-				    <div class="gh gh-username"></div>
-				    <div class="gh gh-recently-active gh-hidden">
-				      <span class="gh gh-greenbox"></span>
-				      <span class="gh gh-recent-txt">Recently Active</span>
-				    </div>
-				  </div>
-
-				  <div class="gh gh-contents">
-				    <p class="gh gh-repos"></p>
-				    <p class="gh gh-gists"></p>
-				  </div>
-
-				  <div class="gh gh-languages"></div>
-				</div>				
-			<!-- Este codigo pertenece al repositorio https://github.com/pketh/github-report-card-->
-
-			<br><br> <img src="http://albertoromeu.com/wp-content/uploads/2014/03/github-logo.jpg">
-		  </div>
+    <div>>
+          <div class="jumbotron" style="text-align:center">
+              <form ng-submit="createUser()">
+                  <h3>Registrar</h3>
+                  <h4>Nombre usuario</h4> </p><input ng-model="user" type = "text"> <br><br>
+                  <h4>Descripcion del usuario</h4> <input ng-model="description" type = "text"> <br><br>
+                  <input value="Crear usuario" type = "submit"> <br><br>
+              </form>
+          </div>
     </div>
 
     <!-- Modules -->
