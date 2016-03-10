@@ -1,10 +1,10 @@
 /**
  * Created by 46465442z on 19/02/16.
  */
-app.controller('controller', ["$scope", "getUser", "getUserTweets", "getFollowings", "getFollowingTweets",
+app.controller('controller', ["$scope", "getUsuari", "getTweetUsuaris", "getSeguint",
     function($scope, getUser, getUserTweets, getFollowings, getFollowingTweets) {
 
-        $scope.setUser = function() {
+        $scope.setUsuari = function() {
             $scope.userId = $scope.usuari;
             $scope.usuari = "";
             var dades = getUser($scope.userId);
@@ -20,13 +20,13 @@ app.controller('controller', ["$scope", "getUser", "getUserTweets", "getFollowin
             $scope.tweetTxt = "";
         }
 
-        $scope.follow = function() {
+        $scope.seguir = function() {
             $scope.followings.$add({idUser: $scope.usuari2Follow});
             $scope.usuari2Follow = "";
         }
     }]);
 
-app.factory("getUser", ["$firebaseObject",
+app.factory("getUsuari", ["$firebaseObject",
     function($firebaseObject) {
         return function(usuari) {
             var ref = new Firebase("https://ecaibtweet.firebaseio.com/users");
@@ -37,7 +37,7 @@ app.factory("getUser", ["$firebaseObject",
     }
 ]);
 
-app.factory("getUserTweets", ["$firebaseArray",
+app.factory("getTweetUsuaris", ["$firebaseArray",
     function($firebaseArray) {
         return function(usuari) {
             var ref = new Firebase("https://ecaibtweet.firebaseio.com/users");
@@ -46,16 +46,7 @@ app.factory("getUserTweets", ["$firebaseArray",
     }
 ]);
 
-app.factory("getFollowings", ["$firebaseArray",
-    function($firebaseArray) {
-        return function(usuari) {
-            var ref = new Firebase("https://ecaibtweet.firebaseio.com/users");
-            return $firebaseArray(ref.child(usuari).child("following"));
-        };
-    }
-]);
-
-app.factory("getFollowingTweets", ["$firebaseArray",
+app.factory("getSeguint", ["$firebaseArray",
     function($firebaseArray) {
         return function(usuari) {
             var ref = new Firebase("https://ecaibtweet.firebaseio.com/users");
