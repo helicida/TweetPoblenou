@@ -34,7 +34,7 @@
                     <!-- Desplegable navbar -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="./index.html">Tweets personalitzats <span class="sr-only">(current)</span></a></li>
+                            <li class="active"><a href="./index.html">Perfil usuari <span class="sr-only">(current)</span></a></li>
                             <li><a href="tweets.html">Tots els tweets</a></li>
                             <li><a href="./sections/createUser.html">Crear Usuari</a></li>
 
@@ -69,14 +69,13 @@
                                 </ul>
                             </li>
                         </ul>
-
                     </div>
                 </div>
             </nav>
     </head>
 
     <!-- Body -->
-    <body ng-controller="Tweet">
+    <body ng-controller="controller">
 
     <!-- Container de titulo -->
         <div class="container">
@@ -86,16 +85,28 @@
 
                 <!-- Formulario de login -->
                 <form ng-submit="login()">
-                    <h5>Login</h5>
-                    <input ng-model="user" type = "text">
-                    <input ng-model="password" type = "text">
-                    <input value="Login" type = "submit">
+                    <h4>Login</h4>
+                    <p><input type="text" ng-model="usuari">
+                        <input type="button" value="Login" ng-click="setUsuari()"></p>
                 </form>
             </div>
 
             <!-- En esta parte mostramos la lista del chat -->
             <ul class="chatbox">
-                <li ng-repeat="message in messages"> <b>{{ message.user }}:</b> {{ message.text }}</li>
+                <h2>Benvingut: {{ userId }} - {{ userName.$value }}</h2>
+                <h5> {{ userDesc.$value }} </h5><hr>
+
+                <h4>Usuaris seguits</h4>
+                <ul class="chatbox">
+                    <li ng-repeat="follow in followings">
+                       <p>{{ follow.idUser }}</p>
+                    </li>
+                </ul><hr>
+
+                <h4><u>Tweets del usuari</u></h4>
+                <ul class="chatbox">
+                    <li ng-repeat="tweet in userTweets"> <b> {{ userId }}: </b> {{ tweet.text }}</li>
+                </ul>
             </ul>
             <hr>
         </div>
@@ -104,9 +115,9 @@
     <footer class="footer">
         <div class="form-footer" style="text-align:center">
             <!-- Con este boton enviamos el mensaje -->
-            <form ng-submit="getFollowingTweets()">
-                <input ng-model="message" type = "text" size="35">
-                <input value="Segueix usuari" type = "submit">
+            <form ng-submit="getSeguidos()">
+                <p><input type="text" ng-model="usuari2Follow">
+                <input type="button" value="Seguir usuari" ng-click="follow()"></p>
             </form>
         </div>
     </footer>

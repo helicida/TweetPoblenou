@@ -34,7 +34,7 @@
                 <!-- Desplegable navbar -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Tweets personalitzats <span class="sr-only">(current)</span></a></li>
+                        <li class="active"><a href="index.html">Perfil usuari <span class="sr-only">(current)</span></a></li>
                         <li><a href="./tweets.html">Tots els tweets</a></li>
                         <li><a href="sections/createUser.html">Crear Usuari</a></li>
 
@@ -76,45 +76,45 @@
     </head>
 
     <!-- Body -->
-    <body ng-controller="Tweet">
+    <body ng-controller="controller">
+        <!-- Container de titulo -->
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Tweet Poblenou </h1>
+                <p>Ejemplo de un sitio web de chat programado en HTML, JavaScript & Bootstrap</p>
 
-    <!-- Container de titulo -->
-    <div class="container">
-        <div class="jumbotron">
-            <h1>Tweet Poblenou </h1>
-            <p>Ejemplo de un sitio web de chat programado en HTML, JavaScript & Bootstrap</p>
+                <!-- Formulario de login -->
+                <form ng-submit="login()">
+                    <h4>Login</h4>
+                    <p><input type="text" ng-model="usuari">
+                        <input type="button" value="Login" ng-click="setUsuari()"></p>
+                </form>
+            </div>
 
-            <!-- Formulario de login -->
-            <form ng-submit="login()">
-                <h5>Login</h5>
-                <input ng-model="user" type = "text">
-                <input ng-model="password" type = "text">
-                <input value="Login" type = "submit">
-            </form>
+            <!-- En esta parte mostramos la lista del chat -->
+            <h2>Benvingut: {{ userId }} - {{ userName.$value }}</h2>
+            <h5>{{ userDesc.$value }}</h5>
+            <hr>
+            <h4><u>Tweets d'usuaris que estàs seguint</u></h4>
+            <ul class="chatbox">
+                <li ng-repeat="tweet in userTweets"> <b>{{ userId }}: </b> {{ tweet.text }}</li>
+            </ul>
         </div>
 
-        <!-- En esta parte mostramos la lista del chat -->
-        <ul class="chatbox">
-            <li ng-repeat="message in messages"> <b>{{ message.user }}:</b> {{ message.text }}</li>
-        </ul>
-        <hr>
-    </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="form-footer" style="text-align:center">
+                <!-- Con este boton enviamos el mensaje -->
+                <form>
+                    <input type="text" ng-model="tweetTxt">
+                    <input type="button" value="Enviar missatge" ng-click="tweetejar()">
+                </form>
+            </div>
+        </footer>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="form-footer" style="text-align:center">
-            <!-- Con este boton enviamos el mensaje -->
-            <form ng-submit="addMessage()">
-                <input ng-model="message" type = "text" size="35">
-                <input value="Envia missatge" type = "submit">
-            </form>
-        </div>
-    </footer>
-
-    <!-- Modules -->
-    <script src="app.js"></script>
-    <!-- Controllers -->
-    <script src="controller.js"></script>
-
+        <!-- Modules -->
+        <script src="app.js"></script>
+        <!-- Controllers -->
+        <script src="controller.js"></script>
     </body>
 </html>
