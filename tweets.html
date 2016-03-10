@@ -1,0 +1,120 @@
+<html ng-app="TweetApp" xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+        <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="footerStyle.css">
+
+        <!-- Title-->
+        <title>Twitter Poblenou | Helicida</title>
+
+        <!-- Importamos Bootstrap  -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+        <!-- Barra de navegación -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Tweet Poblenou</a>
+                </div>
+
+                <!-- Desplegable navbar -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html">Tweets personalitzats <span class="sr-only">(current)</span></a></li>
+                        <li><a href="./tweets.html">Tots els tweets</a></li>
+                        <li><a href="sections/createUser.html">Crear Usuari</a></li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opcions <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="sections/FAQ.html">FAQ</a></li>
+                                <li><a href="sections/about.html">About</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!-- Formulario de busqueda-->
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Cercar">
+                        </div>
+                        <button type="submit" class="btn btn-default">Envia</button>
+                    </form>
+
+                    <!-- Parte derecha del navbar -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="http://virtual.ecaib.org/" target="_blank">ECAIB</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </head>
+
+    <!-- Body -->
+    <body ng-controller="Tweet">
+
+    <!-- Container de titulo -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Tweet Poblenou </h1>
+            <p>Ejemplo de un sitio web de chat programado en HTML, JavaScript & Bootstrap</p>
+
+            <!-- Formulario de login -->
+            <form ng-submit="login()">
+                <h5>Login</h5>
+                <input ng-model="user" type = "text">
+                <input ng-model="password" type = "text">
+                <input value="Login" type = "submit">
+            </form>
+        </div>
+
+        <!-- En esta parte mostramos la lista del chat -->
+        <ul class="chatbox">
+            <li ng-repeat="message in messages"> <b>{{ message.user }}:</b> {{ message.text }}</li>
+        </ul>
+        <hr>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="form-footer" style="text-align:center">
+            <!-- Con este boton enviamos el mensaje -->
+            <form ng-submit="addMessage()">
+                <input ng-model="message" type = "text" size="35">
+                <input value="Envia missatge" type = "submit">
+            </form>
+        </div>
+    </footer>
+
+    <!-- Modules -->
+    <script src="app.js"></script>
+    <!-- Controllers -->
+    <script src="controller.js"></script>
+
+    </body>
+</html>
