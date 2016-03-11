@@ -24,24 +24,37 @@ app.controller('controller', ["$scope", "getUsuari", "getTweetUsuaris", "getSegu
             $scope.followings.$add({idUser: $scope.usuari2Follow});
             $scope.usuari2Follow = "";
         }
+
+        /* RAMON AQUESTA NO m'HA SORTIT :(
+
+        $scope.tweetsFollowers = function(aux){
+            $scope.arrayMissatges = [];
+            for (var tweetsSeguint in aux.tweets) {
+                if (tweetsSeguint != null) {
+                    $scope.arrayMissatges.push({
+
+                    });
+                }
+            }
+            for (var usuariSeguit in aux.following) {
+
+                for(var j = 0; j < $scope.usuaris.length; j++) {
+
+                    if( aux2.$id == usernameSeguit ) {
+
+
+                    }
+                }
+            }
+        };*/
     }]);
 
 app.factory("getUsuari", ["$firebaseObject",
     function($firebaseObject) {
         return function(usuari) {
-            var ref = new Firebase("https://ecaibtweet.firebaseio.com/users");
-
-            return {nom: $firebaseObject(ref.child(usuari).child("name")),
-                desc: $firebaseObject(ref.child(usuari).child("description"))};
-        };
-    }
-]);
-
-app.factory("getTweetUsuaris", ["$firebaseArray",
-    function($firebaseArray) {
-        return function(usuari) {
-            var ref = new Firebase("https://ecaibtweet.firebaseio.com/users");
-            return $firebaseArray(ref.child(usuari).child("tweets"));
+            var refFirebase = new Firebase("https://ecaibtweet.firebaseio.com/users");
+            return {nom: $firebaseObject(refFirebase.child(usuari).child("name")),
+                desc: $firebaseObject(refFirebase.child(usuari).child("description"))};
         };
     }
 ]);
@@ -49,8 +62,19 @@ app.factory("getTweetUsuaris", ["$firebaseArray",
 app.factory("getSeguint", ["$firebaseArray",
     function($firebaseArray) {
         return function(usuari) {
-            var ref = new Firebase("https://ecaibtweet.firebaseio.com/users");
-            return $firebaseArray(ref.child(usuari).child("following"));
+            var refFirebase = new Firebase("https://ecaibtweet.firebaseio.com/users");
+            return $firebaseArray(refFirebase.child(usuari).child("following"));
         };
     }
 ]);
+
+app.factory("getTweetUsuaris", ["$firebaseArray",
+    function($firebaseArray) {
+        return function(usuari) {
+            var refFirebase = new Firebase("https://ecaibtweet.firebaseio.com/users");
+            return $firebaseArray(refFirebase.child(usuari).child("tweets"));
+        };
+    }
+]);
+
+

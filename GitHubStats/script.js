@@ -1,4 +1,5 @@
 // Este codigo pertenece al repositorio https://github.com/pketh/github-report-card-->
+// Abans funcionaba, però sembla que GitHub està bloquejant el ús
 
 $( document ).ready(function() {
 
